@@ -1,0 +1,30 @@
+{
+  "name": "q-applet-github",
+  "version": "1.0.0",
+  "description": "Das Keyboard Applet for Github Notifications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Cory Kim",
+  "license": "MIT",
+  "dependencies": {
+    "daskeyboard-applet": "~2.4.3"
+  },
+  "qConfig": {
+    "geometry": {
+      "width": 1,
+      "height": 1
+    },
+    "applet": {
+      "defaults": {}
+    },
+    "requirements": {
+      "authorization": "basic",
+      "applet": {}
+    }
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
