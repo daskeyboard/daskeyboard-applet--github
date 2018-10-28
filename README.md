@@ -7,7 +7,7 @@ is a notification waiting for you in your Github account.
 
 # Requirements
 
-Q Desktop and Q series Das Keyboard.
+Q Desktop and Q series Das Keyboard (www.daskeyboard.com/5q).
 
 ## Copyright / License
 
