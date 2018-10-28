@@ -1,6 +1,9 @@
 # q-applet-github
-Das Keyboard Applet for Github Notifications
 
+Das Keyboard Applet for Github Notifications.
+
+Get a visual notification on your Das Keybaord Q series when there 
+is a notification waiting for you in your Github account.
 
 ## Copyright / License
 
