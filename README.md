@@ -5,6 +5,10 @@ Das Keyboard Applet for Github Notifications.
 Get a visual notification on your Das Keybaord Q series when there 
 is a notification waiting for you in your Github account.
 
+# Requirements
+
+Q Desktop and Q series Das Keyboard.
+
 ## Copyright / License
 
 Copyright 2014 - 2018 Das Keyboard / Metadot Corp.
