@@ -1,13 +1,19 @@
-# q-applet-github
+# Q Applet: GitHub
 
-Das Keyboard Applet for Github Notifications.
+Displays GitHub notifications on a Das Keyboard Q Series.
 
-Get a visual notification on your Das Keybaord Q series when there 
-is a notification waiting for you in your Github account.
+## Changelog
 
-## Requirements
+[CHANGELOG.MD](CHANGELOG.md)
 
-Q Desktop and Q series Das Keyboard (www.daskeyboard.com/5q).
+## Installation
+
+Requires a Das Keyboard Q Series: www.daskeyboard.com/5q and a GitHub account.
+
+Installation, configuration and uninstallation of applets is done within
+the Q Desktop application (https://www.daskeyboard.io/get-started/software/)
+
+## Docs & Contribute
 
 ## Copyright / License
 
