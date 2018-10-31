@@ -15,16 +15,13 @@ describe('getNotifications', function () {
 describe('GitHub', () => {
   let app = new t.GitHub();
   
-  app.applyConfig({
+  app.processConfig({
     extensionId: 777,
     geometry: {
       width: 1,
       height: 1,
     },
-    authorization: {
-      username: auth.username,
-      password: auth.password
-    },
+    authorization: auth,
     applet: {}
   });
 
