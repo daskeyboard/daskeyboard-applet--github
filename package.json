@@ -1,7 +1,7 @@
 {
   "name": "q-applet-github",
-  "displayName": "GitHub Notifications"
-  "version": "1.0.0",
+  "displayName": "GitHub Notifications",
+  "version": "1.0.1",
   "description": "Das Keyboard Applet for Github Notifications.",
   "longDescription": "Get a visual notification on your Das Keybaord Q series when there is a new Github notification.",
   "officialProductName": "Github",
@@ -26,7 +26,7 @@
   "author": "Cory Kim",
   "license": "MIT",
   "dependencies": {
-    "daskeyboard-applet": "^2.7.9"
+    "daskeyboard-applet": "^2.7.13"
   },
   "qConfig": {
     "geometry": {
