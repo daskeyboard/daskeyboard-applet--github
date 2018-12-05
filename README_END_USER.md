@@ -1,5 +1,5 @@
-# Github Q Applet
+# Github
 
 TODO
 
-![Gmail monitoring on a Das Keybaord Q](assets/github-icon.png "Q Gmail")
+![Gmail monitoring on a Das Keybaord Q](assets/image.png "Q Gmail")
