@@ -38,12 +38,8 @@
       "width": 1,
       "height": 1
     },
-    "applet": {
-      "defaults": {}
-    },
-    "requirements": {
-      "authorization": "basic",
-      "applet": {}
+    "authorization": {
+      "type": "oauth2"
     }
   },
   "devDependencies": {
