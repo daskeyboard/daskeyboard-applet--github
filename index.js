@@ -1,6 +1,9 @@
 const q = require('daskeyboard-applet');
 const request = require('request-promise');
 
+const logger = q.logger;
+
+
 const apiUrl = 'https://api.github.com/notifications';
 
 async function getNotifications(username, token) {
@@ -17,14 +20,14 @@ async function getNotifications(username, token) {
 
 class GitHub extends q.DesktopApp {
   async run() {
-    console.log("Running.");
+    logger.info("Running.");
     const username = this.authorization.username;
     const token = this.authorization.password;
 
     if (username && token) {
       return getNotifications(username, token).then(notifications => {
         const numberNotifications = notifications.length;
-        console.log("I have " + numberNotifications + " notifications.");
+        logger.info("I have " + numberNotifications + " notifications.");
         if (numberNotifications > 0) {
           return new q.Signal({
             points: [
@@ -39,7 +42,7 @@ class GitHub extends q.DesktopApp {
         return null;
       })
     } else {
-      console.log("No userName and password configured.");
+      logger.info("No userName and password configured.");
       return null;
     }
   }
