@@ -2,6 +2,8 @@
 
 Displays GitHub notifications on a Das Keyboard Q Series.
 
+![Github on a Das Keybaord Q](assets/image.png "Q Github")
+
 ## Changelog
 
 [CHANGELOG.MD](CHANGELOG.md)
@@ -13,7 +15,13 @@ Requires a Das Keyboard Q Series: www.daskeyboard.com and a GitHub account.
 Installation, configuration and uninstallation of applets is done within
 the Q Desktop application (https://www.daskeyboard.com/q)
 
-## Docs & Contribute
+## Running tests
+
+- `yarn test`
+
+## Contributions
+
+Pull requests welcome.
 
 ## Copyright / License
 

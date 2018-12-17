@@ -1,5 +1,5 @@
 # Github
 
-TODO
+Displays GitHub notifications on a Das Keyboard Q Series.
 
-![Gmail monitoring on a Das Keybaord Q](assets/image.png "Q Gmail")
+![Github on a Das Keybaord Q](assets/image.png "Q Github")
