@@ -26,7 +26,7 @@
     "test": "mocha"
   },
   "engines": {
-    "das-keyboard-q": "3.1.0"
+    "das-keyboard-q": "3.1.1"
   },
   "author": "Cory Kim",
   "license": "MIT",
