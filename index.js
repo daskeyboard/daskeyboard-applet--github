@@ -6,51 +6,48 @@ const logger = q.logger;
 
 const apiUrl = 'https://api.github.com/notifications';
 
-async function getNotifications(username, token) {
-  const auth = "Basic " + new Buffer(username + ":" + token).toString("base64");
-  return request.get({
-    url: apiUrl,
-    headers: {
-      "Authorization": auth,
-      "User-Agent": "Das Keyboard q-applet-github"
-    },
-    json: true
-  });
-}
 
 class GitHub extends q.DesktopApp {
+
+  async getNotifications() {
+    logger.info(`Checking for new notifications`);
+
+    if (!this.authorization.apiKey) {
+      logger.error(`No apiKey available.`);
+      throw new Error('No apiKey available.');
+    }
+
+    const proxyRequest = new q.Oauth2ProxyRequest({
+      apiKey: this.authorization.apiKey,
+      uri: apiUrl
+    });
+    return this.oauth2ProxyRequest(proxyRequest);
+  }
+
   async run() {
     logger.info("Running.");
-    const username = this.authorization.username;
-    const token = this.authorization.password;
-
-    if (username && token) {
-      return getNotifications(username, token).then(notifications => {
-        const numberNotifications = notifications.length;
-        logger.info("I have " + numberNotifications + " notifications.");
-        if (numberNotifications > 0) {
-          return new q.Signal({
-            points: [
-              [new q.Point('#0000FF')]
-            ],
-            name: 'Github',
-            message: numberNotifications > 1 ? 'You have unread notifications.' : 'You have an unread notification.'
-          });
-        }
-      }).catch((error) => {
-        console.error("Error while getting notifications:", error);
-        return null;
-      })
-    } else {
-      logger.info("No userName and password configured.");
+    return this.getNotifications().then(notifications => {
+      const numberNotifications = notifications.length;
+      logger.info("I have " + numberNotifications + " notifications.");
+      if (numberNotifications > 0) {
+        return new q.Signal({
+          points: [
+            [new q.Point('#0000FF')]
+          ],
+          name: 'Github',
+          message: numberNotifications > 1 ? 'You have unread notifications.' : 'You have an unread notification.'
+        });
+      }
+    }).catch((error) => {
+      logger.error("Error while getting notifications:", error);
       return null;
-    }
+    })
+
   }
 }
 
 
 module.exports = {
-  getNotifications: getNotifications,
   GitHub: GitHub
 }
 
