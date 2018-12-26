@@ -1,5 +1,4 @@
 const q = require('daskeyboard-applet');
-const request = require('request-promise');
 
 const logger = q.logger;
 
@@ -9,6 +8,10 @@ const apiUrl = 'https://api.github.com/notifications';
 
 class GitHub extends q.DesktopApp {
 
+  /**
+   * Gets notifications from github api by making an Oauth request
+   * through the Das Keyboard Q Oauth proxy
+   */
   async getNotifications() {
     logger.info(`Checking for new notifications`);
 
@@ -17,6 +20,9 @@ class GitHub extends q.DesktopApp {
       throw new Error('No apiKey available.');
     }
 
+    /**
+     * Use daskeyboard Oauth Proxy to make the request
+     */
     const proxyRequest = new q.Oauth2ProxyRequest({
       apiKey: this.authorization.apiKey,
       uri: apiUrl
@@ -35,7 +41,11 @@ class GitHub extends q.DesktopApp {
             [new q.Point('#0000FF')]
           ],
           name: 'Github',
-          message: numberNotifications > 1 ? 'You have unread notifications.' : 'You have an unread notification.'
+          message: numberNotifications > 1 ? 'You have unread notifications.' : 'You have an unread notification.',
+          link: {
+            url: 'https://www.github.com/notifications',
+            label: 'Show on Github',
+          }
         });
       }
     }).catch((error) => {
