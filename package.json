@@ -31,7 +31,7 @@
   "author": "Cory Kim",
   "license": "MIT",
   "dependencies": {
-    "daskeyboard-applet": "^2.10.10"
+    "daskeyboard-applet": "^2.10.1"
   },
   "qConfig": {
     "geometry": {
