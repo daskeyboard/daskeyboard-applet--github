@@ -38,7 +38,7 @@ class GitHub extends q.DesktopApp {
       if (numberNotifications > 0) {
         return new q.Signal({
           points: [
-            [new q.Point('#0000FF')]
+            [new q.Point('#FF0000', q.Effects.BLINK)]
           ],
           name: 'Github',
           message: numberNotifications > 1 ? 'You have unread notifications.' : 'You have an unread notification.',

@@ -1,4 +1,4 @@
-# Github
+# Github Notifications
 
 Displays GitHub notifications on a Das Keyboard Q Series.
 

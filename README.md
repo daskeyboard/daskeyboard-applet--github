@@ -1,4 +1,4 @@
-# Q Applet: GitHub
+# Q Applet: GitHub Notifications
 
 Displays GitHub notifications on a Das Keyboard Q Series.
 
