@@ -1,36 +1,49 @@
 const assert = require('assert');
+const authProxyUri = require('./auth.json').oAuth2ProxyUri;
+process.env = {
+  ...process.env,
+  oAuth2ProxyUri: authProxyUri
+}
 const t = require('../index');
-const auth = require('./auth.json');
+const apiKey = require('./auth.json').apiKey;
 
-describe('getNotifications', function () {
-  it('can get notifications', function () {
-    t.getNotifications(auth.username, auth.password).then((notifications) => {
-      assert.ok(notifications, 'Response was not truthy.');      
-    }).catch((error) => {
-      assert.fail(error);
-    })
-  })
-});
 
-describe('GitHub', () => {
-  let app = new t.GitHub();
-  
-  app.processConfig({
-    extensionId: 777,
-    geometry: {
-      width: 1,
-      height: 1,
-    },
-    authorization: auth,
-    applet: {}
+describe('GitHubNotifications', () => {
+
+  beforeEach(function () {
+
   });
 
-  describe('#run()', () => {
-    app.run().then((signal) => {
-      console.log(signal);
-      assert.ok(signal);
-    }).catch((error) => {
-      assert.fail(error)
+
+
+  it('should get notifications', async function () {
+    return buildApp().then(async (app) => {
+      return app.getNotifications().then((notification) => {
+        assert.ok(notification, 'Response was not truthy.')
+      }).catch(err => assert.fail(err));
     });
-  })
-})
+  });
+
+
+  describe('#run()', () => {
+    it('should get a signal', async function () {
+      return buildApp().then((signal) => {
+        assert.ok(signal);
+      }).catch((error) => {
+        assert.fail(error)
+      });
+    })
+  });
+
+});
+
+async function buildApp() {
+  let app = new t.GitHub();
+  return app.processConfig({
+    authorization: {
+      apiKey: apiKey
+    }
+  }).then(() => {
+    return app;
+  });
+}

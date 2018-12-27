@@ -1,4 +1,4 @@
 {
-  "username": "<username>",
-  "password": "<application token>"
+  "apiKey": "some-api-key-received-from-q-cloud-proxy",
+  "oAuth2ProxyUri": "some-uri-to-do-proxy-oauth-request"
 }
