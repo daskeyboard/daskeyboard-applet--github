@@ -28,7 +28,7 @@
   "engines": {
     "das-keyboard-q": "3.1.1"
   },
-  "author": "Cory Kim",
+  "author": "Das Keyboard",
   "license": "MIT",
   "dependencies": {
     "daskeyboard-applet": "^2.10.12"
