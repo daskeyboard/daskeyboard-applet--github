@@ -1,5 +1,13 @@
 # Changelog Q Applet GitHub
 
+#### 1.0.2 (2018-12-28)
+
+##### New Features
+
+* **notifications:**  clear color in key if notifications has been read (977f8eb2)
+
+
+
 #### 1.0.1 (2018-12-27)
 
 
