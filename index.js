@@ -9,6 +9,22 @@ const apiUrl = 'https://api.github.com/notifications';
 class GitHub extends q.DesktopApp {
 
   /**
+ * Delete all previous signals
+ */
+  async deleteOldSignals() {
+    // delete the previous signals
+    while (this.signalLog && this.signalLog.length) {
+      const signal = this.signalLog.pop().signal;
+      logger.debug(`Deleting previous signal: ${signal.id}`)
+      await q.Signal.delete(signal).catch(error => {
+        logger.error(`Error deleting signal ${signal.id}: ${error}`);
+      });
+
+      logger.debug(`Deleted the signal: ${signal.id}`);
+    }
+  }
+
+  /**
    * Gets notifications from github api by making an Oauth request
    * through the Das Keyboard Q Oauth proxy
    */
@@ -33,6 +49,7 @@ class GitHub extends q.DesktopApp {
   async run() {
     logger.info("Running.");
     return this.getNotifications().then(notifications => {
+      this.deleteOldSignals();
       const numberNotifications = notifications.length;
       logger.info("I have " + numberNotifications + " notifications.");
       if (numberNotifications > 0) {
