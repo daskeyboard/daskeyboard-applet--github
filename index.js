@@ -8,9 +8,13 @@ const apiUrl = 'https://api.github.com/notifications';
 
 class GitHub extends q.DesktopApp {
 
+  constructor() {
+    super();
+    this.pollingInterval = 60000 * 5; // every 5 min
+  }
   /**
- * Delete all previous signals
- */
+   * Delete all previous signals
+   */
   async deleteOldSignals() {
     // delete the previous signals
     while (this.signalLog && this.signalLog.length) {
