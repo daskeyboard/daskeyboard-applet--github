@@ -1,4 +1,12 @@
-# Changelog Q Applet GitHub
+#### 1.0.3 (2019-01-28)
+
+##### New Features
+
+* **Notification message:**  changed the content of the notification sent to the Das Keyboard Q app (9755d391)
+
+##### Code Style Changes
+
+* **Icon:**  Changed applet icon (297617d6)
 
 #### 1.0.2 (2018-12-28)
 
