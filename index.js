@@ -62,7 +62,7 @@ class GitHub extends q.DesktopApp {
             [new q.Point('#FF0000', q.Effects.BLINK)]
           ],
           name: 'GitHub',
-          message: numberNotifications > 1 ? 'You have unread notifications.' : 'You have an unread notification.',
+          message: numberNotifications > 1 ? 'Unread notifications available.' : 'Unread notification available.',
           link: {
             url: 'https://www.github.com/notifications',
             label: 'Show on GitHub',
