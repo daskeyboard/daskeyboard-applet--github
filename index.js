@@ -1,4 +1,5 @@
 const q = require('daskeyboard-applet');
+const request = require('request-promise');
 
 const logger = q.logger;
 
@@ -34,20 +35,82 @@ class GitHub extends q.DesktopApp {
    */
   async getNotifications() {
     logger.info(`Checking for new notifications`);
+    // /**
+    //  * Use daskeyboard Oauth Proxy to make the request
+    //  */
+    // const proxyRequest = new q.Oauth2ProxyRequest({
+    //   apiKey: this.authorization.apiKey,
+    //   uri: apiUrl
+    // });
+    // return this.oauth2ProxyRequest(proxyRequest);
+    let options = {
+      uri: apiUrl,
+      json: true
+    };
+    return this.getGithubAccessToken().then(accessToken => {
+      // save the token
+      this.githubAccessToken = accessToken;
+      // add token to request option
+      options = {
+        ...options, headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'user-agent': 'node.js'
+        }
+      }
+      return request(options);
+    }).catch(err => {
+      logger.info(`Got error ${err}, will try to refresh access token`);
+      return this.refreshGithubAccessToken().then(accessToken => {
+        // save the token
+        this.githubAccessToken = accessToken;
+        // add token to request option
+        options = {
+          ...options, headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'user-agent': 'node.js'
+          }
+        }
+        return request(options);
+      });
+    });
+  }
 
+  /**
+   * Uses the daskeyboard Oauth Proxy to get an access token from github
+   */
+  async getGithubAccessToken() {
     if (!this.authorization.apiKey) {
-      logger.error(`No apiKey available.`);
-      throw new Error('No apiKey available.');
+      throw new Error('No apiKey available');
     }
 
-    /**
-     * Use daskeyboard Oauth Proxy to make the request
-     */
+    if (this.githubAccessToken) {
+      return this.githubAccessToken;
+    }
+
     const proxyRequest = new q.Oauth2ProxyRequest({
-      apiKey: this.authorization.apiKey,
-      uri: apiUrl
+      apiKey: this.authorization.apiKey
     });
-    return this.oauth2ProxyRequest(proxyRequest);
+
+    return proxyRequest.getOauth2ProxyToken().then(proxyResponse => {
+      return proxyResponse.access_token;
+    });
+  }
+
+  /**
+   * Uses daskeyboard Oauth proxy to refresh access token
+   */
+  async refreshGithubAccessToken() {
+    if (!this.authorization.apiKey) {
+      throw new Error('No apiKey available');
+    }
+
+    const proxyRequest = new q.Oauth2ProxyRequest({
+      apiKey: this.authorization.apiKey
+    });
+
+    return proxyRequest.refreshOauth2AccessToken().then(proxyResponse => {
+      return proxyResponse.access_token;
+    });
   }
 
   async run() {
