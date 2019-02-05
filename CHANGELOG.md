@@ -1,3 +1,9 @@
+#### 1.0.4 (2019-02-05)
+
+##### Bug Fixes
+
+* **Request:**   Requests will use daskeyboard proxy only to ask for new tokens (914511a1)
+
 #### 1.0.3 (2019-01-28)
 
 ##### New Features
