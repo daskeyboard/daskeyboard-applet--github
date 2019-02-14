@@ -1,3 +1,9 @@
+#### 1.0.5 (2019-02-14)
+
+##### Chore
+
+* **syntax:**   Github become GitHub with a new image
+
 #### 1.0.4 (2019-02-05)
 
 ##### Bug Fixes
@@ -21,7 +27,6 @@
 * **notifications:**  clear color in key if notifications has been read (977f8eb2)
 
 #### 1.0.1 (2018-12-27)
-
 
 ##### Documentation Changes
 

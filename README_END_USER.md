@@ -1,4 +1,4 @@
-# Github
+# GitHub
 
 Displays GitHub notifications on a Das Keyboard Q Series by blinking a key of your choice.
 
