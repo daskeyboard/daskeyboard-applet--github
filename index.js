@@ -3,9 +3,7 @@ const request = require('request-promise');
 
 const logger = q.logger;
 
-
 const apiUrl = 'https://api.github.com/notifications';
-
 
 class GitHub extends q.DesktopApp {
 
@@ -114,7 +112,7 @@ class GitHub extends q.DesktopApp {
   }
 
   async run() {
-    logger.info("Running.");
+    logger.info("GitHub running.");
     return this.getNotifications().then(notifications => {
       this.deleteOldSignals();
       const numberNotifications = notifications.length;
@@ -133,8 +131,16 @@ class GitHub extends q.DesktopApp {
         });
       }
     }).catch((error) => {
-      logger.error("Error while getting notifications:", error);
-      return null;
+      logger.error(`Got error sending request to service: ${JSON.stringify(error)}`);
+      if(`${error.message}`.includes("getaddrinfo")){
+        return q.Signal.error(
+          'The GitHub service returned an error. <b>Please check your internet connection</b>.'
+        );
+      }
+      return q.Signal.error([
+        'The GitHub service returned an error. <b>Please check your account</b>.',
+        `Detail: ${error.message}`
+      ]);
     })
 
   }
