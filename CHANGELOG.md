@@ -1,3 +1,9 @@
+#### 1.0.6 (2019-04-16)
+
+##### Bug Fixes
+
+* **fix:** Handled internet connection error
+
 #### 1.0.5 (2019-02-14)
 
 ##### Chore
