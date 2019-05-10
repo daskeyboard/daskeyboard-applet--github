@@ -133,14 +133,16 @@ class GitHub extends q.DesktopApp {
     }).catch((error) => {
       logger.error(`Got error sending request to service: ${JSON.stringify(error)}`);
       if(`${error.message}`.includes("getaddrinfo")){
-        return q.Signal.error(
-          'The GitHub service returned an error. <b>Please check your internet connection</b>.'
-        );
+        // No internet connection signal error any more.
+        // return q.Signal.error(
+        //   'The GitHub service returned an error. <b>Please check your internet connection</b>.'
+        // );
+      }else{
+        return q.Signal.error([
+          'The GitHub service returned an error. <b>Please check your account</b>.',
+          `Detail: ${error.message}`
+        ]);
       }
-      return q.Signal.error([
-        'The GitHub service returned an error. <b>Please check your account</b>.',
-        `Detail: ${error.message}`
-      ]);
     })
 
   }
