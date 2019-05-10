@@ -1,3 +1,9 @@
+#### 1.0.7 (2019-05-10)
+
+##### Bug Fixes
+
+* **fix:** Do not send signal when getting internet connection error
+
 #### 1.0.6 (2019-04-16)
 
 ##### Bug Fixes
