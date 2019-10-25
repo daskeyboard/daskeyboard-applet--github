@@ -9,7 +9,7 @@ class GitHub extends q.DesktopApp {
 
   constructor() {
     super();
-    this.pollingInterval = 60000 * 5; // every 5 min
+    this.pollingInterval = 60000 * 0.25; // every 15 sec
   }
   /**
    * Delete all previous signals
