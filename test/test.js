@@ -9,14 +9,8 @@ const apiKey = require('./auth.json').apiKey;
 
 
 describe('GitHubNotifications', () => {
-
-  beforeEach(function () {
-
-  });
-
-
-
   it('should get notifications', async function () {
+    this.timeout(10000);
     return buildApp().then(async (app) => {
       return app.getNotifications().then((notification) => {
         assert.ok(notification, 'Response was not truthy.')
