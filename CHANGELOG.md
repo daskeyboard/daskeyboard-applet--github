@@ -1,3 +1,9 @@
+#### 1.0.8 (2019-11-11)
+
+##### Bug Fixes
+
+*  Changed polling rate to 15sec instead of 5min (e6f968e4)
+
 #### 1.0.7 (2019-05-10)
 
 ##### Bug Fixes
