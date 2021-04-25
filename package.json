@@ -40,7 +40,25 @@
     },
     "authorization": {
       "type": "oauth2"
-    }
+    },
+    "questions": [
+      {
+        "key": "notifyEffect",
+        "label": "Effect",
+        "help": "Effect indicating unread notification",
+        "order": 1,
+        "value": "SET_COLOR",
+        "controlType": "effect"
+      },
+      {
+        "key": "notifyColor",
+        "label": "Color",
+        "help": "Color indicating unread notification",
+        "order": 2,
+        "value": "#FF0000",
+        "controlType": "color"
+      }
+    ],
   },
   "devDependencies": {
     "mocha": "^5.2.0"
