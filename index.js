@@ -112,6 +112,8 @@ class GitHub extends q.DesktopApp {
   }
 
   async run() {
+    const notifyEffect = this.config.notifyEffect || 'BLINK';
+    const notifyColor = this.config.notifyColor || '#FF0000';
     logger.info("GitHub running.");
     return this.getNotifications().then(notifications => {
       this.deleteOldSignals();
@@ -120,7 +122,7 @@ class GitHub extends q.DesktopApp {
       if (numberNotifications > 0) {
         return new q.Signal({
           points: [
-            [new q.Point('#FF0000', q.Effects.BLINK)]
+            [new q.Point(notifyColor, notifyEffect)]
           ],
           name: 'GitHub',
           message: numberNotifications > 1 ? 'Unread notifications available.' : 'Unread notification available.',
