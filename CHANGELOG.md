@@ -1,3 +1,9 @@
+#### 1.0.9 (2021-04-26)
+
+##### New Features
+
+* **configuration:**  added key effect and color
+
 #### 1.0.8 (2019-11-11)
 
 ##### Bug Fixes

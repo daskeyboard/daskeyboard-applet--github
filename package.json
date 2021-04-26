@@ -1,7 +1,7 @@
 {
   "name": "daskeyboard-applet--github",
   "displayName": "GitHub",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Displays GitHub notifications.",
   "longDescription": "Get a visual notification on your Das Keybaord Q series when there is a new Github notification.",
   "officialProductName": "GitHub",
